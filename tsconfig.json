@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "esModuleInterop": true,
+        "lib": ["esnext", "dom"],
+        "strict": true,
+        "types": ["jest", "node"],
+        "moduleResolution": "node",
+        "target": "ESNext"
+    },
+    "include": ["src/**/*"],
+    "watchOptions": {
+        "watchFile": "useFsEvents",
+        "watchDirectory": "useFsEvents"
+    }
+}
