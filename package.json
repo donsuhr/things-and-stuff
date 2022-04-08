@@ -5,6 +5,7 @@
     "main": "index.js",
     "scripts": {
         "test": "jest --watchAll",
+        "test:debug": "node --inspect-brk node_modules/.bin/jest --runInBand",
         "coverage": "jest --coverage",
         "check-types": "tsc --noEmit",
         "watch:check-types": "tsc --noEmit --watch --preserveWatchOutput",

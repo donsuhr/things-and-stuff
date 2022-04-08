@@ -1,4 +1,4 @@
-const binarySearch = <T>(
+const binarySearchRecursive = <T>(
     l: T[],
     search: T,
     lo?: number,
@@ -17,9 +17,29 @@ const binarySearch = <T>(
     }
 
     if (search < midVal) {
-        return binarySearch(l, search, loIndex, midIndex - 1);
+        return binarySearchRecursive(l, search, loIndex, midIndex - 1);
     }
-    return binarySearch(l, search, midIndex + 1, hiIndex);
+    return binarySearchRecursive(l, search, midIndex + 1, hiIndex);
 };
 
-export { binarySearch };
+const binarySearch = <T>(l: T[], item: T): number => {
+    const arr = l.sort();
+    let lo = 0;
+    let hi = arr.length - 1;
+    while (lo <= hi) {
+        const mid = lo + Math.floor((hi - lo) / 2);
+        const midVal = arr[mid];
+        if (midVal === item) {
+            return mid;
+        }
+        if (item < midVal) {
+            hi = mid - 1;
+        }
+        if (item > midVal) {
+            lo = mid + 1;
+        }
+    }
+    return -1;
+};
+
+export { binarySearchRecursive, binarySearch };
