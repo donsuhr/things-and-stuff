@@ -10,10 +10,7 @@ module.exports = {
         node: true,
     },
     plugins: ['@typescript-eslint'],
-    extends: [
-        'airbnb-typescript/base',
-        'prettier',
-    ],
+    extends: ['airbnb-base', 'airbnb-typescript/base', 'prettier'],
     rules: {
         'import/prefer-default-export': 'off',
         'no-plusplus': 'off',

@@ -3,3 +3,4 @@ node_modules
 .eslintcache
 Session.vim
 coverage
+/src/pythonCrashCourse

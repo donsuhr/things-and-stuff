@@ -1,53 +1,74 @@
-export default function Calculator() {
+const AllOps = ['+', '-', '*', '/'] as const;
+type OpsTuple = typeof AllOps;
+type Ops = OpsTuple[number];
+
+interface ICalculator {
+    new (): ICalculator;
+    doMath: (left?: number, right?: number, op?: Ops) => number;
+    parseNumber: (x: string | number) => number;
+    evaluate: (str: string) => number;
+}
+
+function isNumber(x: any): x is number {
+    return typeof x === 'number';
+}
+
+function isOps(x: any): x is Ops {
+    return AllOps.includes(x as Ops);
+}
+
+function calculator(this: ICalculator) {
     this.doMath = (left = 0, right = 0, op = '+') => {
         switch (op) {
-            case '+':
-            default:
-                return left + right;
             case '-':
                 return left - right;
             case '*':
                 return left * right;
             case '/':
                 return left / right;
+            case '+':
+            default:
+                return left + right;
         }
     };
 
-    this.parseNumber = (x: string | number) => {
+    this.parseNumber = (x) => {
         const ret = Number(x);
-        if (!/^[\d]+$/.test(x) || Number.isNaN(ret)) {
+        if (!isNumber(x) && (!/^[\d]+$/.test(x) || Number.isNaN(ret))) {
             throw new Error(`Parse error: ${x}`);
         }
         return ret;
     };
 
-    this.evaluate = (string: string): number => {
-        const operands = ['*', '/', '+', '-'];
-        const parts = string.split(' ');
-        const ops = [];
-        const vals = [];
+    this.evaluate = (str: string) => {
+        const parts = str.split(' ');
+        const ops: Ops[] = [];
+        const values: number[] = [];
         while (parts.length) {
-            const part = parts.shift();
-            if (operands.includes(part)) {
+            const part = parts.shift()!;
+            if (isOps(part)) {
                 ops.push(part);
             } else {
-                vals.push(this.parseNumber(part));
+                values.push(this.parseNumber(part));
                 const lastOp = ops[ops.length - 1];
                 if (lastOp === '*' || lastOp === '/') {
-                    const right: number = vals.pop();
-                    const left: number = vals.pop();
+                    const right: number = values.pop()!;
+                    const left: number = values.pop()!;
                     const op = ops.pop();
-                    vals.push(this.doMath(left, right, op));
+                    values.push(this.doMath(left, right, op));
                 }
             }
         }
         while (ops.length) {
             const op = ops.shift();
-            const left: number = vals.shift();
-            const right: number = vals.shift();
-            vals.unshift(this.doMath(left, right, op));
+            const left: number = values.shift()!;
+            const right: number = values.shift()!;
+            values.unshift(this.doMath(left, right, op));
         }
 
-        return vals[0];
+        return values[0];
     };
 }
+
+const Calculator = calculator as any as ICalculator;
+export default Calculator;
