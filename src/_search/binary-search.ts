@@ -1,22 +1,39 @@
-function binarySearch<T>(A: T[], item: T): number {
+export function binarySearch<T>(A: T[], item: T): number {
     let high = A.length - 1;
     let low = 0;
 
     while (low <= high) {
-        const mid = Math.floor((low + high) / 2);
-        const current = A[mid];
-        if (current > item) {
-            high = mid - 1;
+        const pivot = Math.floor((low + high) / 2);
+        const guess = A[pivot];
+        if (guess === item) {
+            return pivot;
         }
-        if (current < item) {
-            low = mid + 1;
-        }
-        if (current === item) {
-            return mid;
+        if (guess > item) {
+            high = pivot - 1;
+        } else {
+            low = pivot + 1;
         }
     }
-
     return -1;
 }
 
-export { binarySearch };
+export function binarySearchRecursive<T>(
+    A: T[],
+    item: T,
+    low: number = 0,
+    high: number = A.length,
+): number {
+    if (low > high) {
+        return -1;
+    }
+
+    const pivot = Math.floor((low + high) / 2);
+    const guess = A[pivot];
+    if (guess === item) {
+        return pivot;
+    }
+    if (item > guess) {
+        return binarySearchRecursive(A, item, pivot + 1, high);
+    }
+    return binarySearchRecursive(A, item, low, pivot - 1);
+}

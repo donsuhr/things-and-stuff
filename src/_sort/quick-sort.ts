@@ -1,17 +1,27 @@
-function quickSort<T>(A: T[]): T[] {
+export const quickSort = <T>(A: T[]): T[] => {
+    const ret = [...A];
     if (A.length < 2) {
-        return A;
+        return ret;
     }
-    const randomIndex = Math.floor(Math.random() * A.length);
-    const pivot = A[randomIndex];
-    const rest = [
-        ...A.slice(0, randomIndex),
-        ...A.slice(randomIndex + 1),
+    const pivotPoint = Math.floor(Math.random() * A.length);
+    const pivot = A[pivotPoint];
+    const partitioned = [
+        ...A.slice(0, pivotPoint),
+        ...A.slice(pivotPoint + 1),
+    ].reduce(
+        ({ lesser, greater }: { lesser: T[]; greater: T[] }, x) => {
+            if (x < pivot) {
+                lesser.push(x);
+            } else {
+                greater.push(x);
+            }
+            return { lesser, greater };
+        },
+        { lesser: [], greater: [] },
+    );
+    return [
+        ...quickSort(partitioned.lesser),
+        pivot,
+        ...quickSort(partitioned.greater),
     ];
-    // const [pivot, ...rest] = list;
-    const lower = rest.filter((x) => x <= pivot);
-    const higher = rest.filter((x) => x > pivot);
-    return [...quickSort(lower), pivot, ...quickSort(higher)];
-}
-
-export { quickSort };
+};

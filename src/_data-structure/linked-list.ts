@@ -21,10 +21,8 @@ export function create() {
     };
 }
 
-// ------------
-
 export class LinkedList<T> {
-    private head: DataStructureNode<T> | null = null;
+    #head: DataStructureNode<T> | null = null;
 
     public add(val: DataStructureNode<T> | T) {
         let node;
@@ -34,13 +32,37 @@ export class LinkedList<T> {
             node = new DataStructureNode<T>();
             node.item = val;
         }
-        if (!this.head) {
-            this.head = node;
+        if (!this.#head) {
+            this.#head = node;
+        } else {
+            let current = this.#head;
+            while (current.next) {
+                current = current.next;
+            }
+            current.next = node;
         }
         return node;
     }
 
-    public getFirst(){
-        return this.head;
+    public getFirst() {
+        return this.#head;
     }
 }
+
+export const arrayToLinkedList = (A: any[]) => {
+    const list = new LinkedList<any>();
+    A.forEach((x) => list.add(x));
+    return list;
+};
+
+export const linkedListToArray = (ll: LinkedList<any>) => {
+    const ret = [];
+    let head = ll.getFirst();
+    if (head) {
+        while (head) {
+            ret.push(head.item);
+            head = head.next;
+        }
+    }
+    return ret;
+};

@@ -5,7 +5,7 @@ test('one', () => {
     expect(foo.evaluate('123')).toBe(123);
 });
 
-test.skip('two', () => {
+test('two', () => {
     const foo = new Calculator();
     expect(foo.evaluate('+ 2')).toBe(2);
 });
@@ -38,4 +38,9 @@ test('10 * 5 / 2', () => {
 test('10 +1', () => {
     const foo = new Calculator();
     expect(() => foo.evaluate('10 +1')).toThrow();
+});
+
+test('do math', () => {
+    const foo = new Calculator();
+    expect(foo.doMath()).toBe(0);
 });

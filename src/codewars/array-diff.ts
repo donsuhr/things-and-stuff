@@ -1,4 +1,4 @@
-const arrayDiff = (a: number[], b: number[]): number[] => {
+export const arrayDiff = (a: number[], b: number[]): number[] => {
     // eslint-disable-next-line no-restricted-syntax
     // for (const x of b) {
     b.forEach((x) => {
@@ -11,7 +11,5 @@ const arrayDiff = (a: number[], b: number[]): number[] => {
     return a;
 };
 
-export const arrayDiffv2 = (a: number[], b: number[]): number[] =>
+export const arrayDiffV2 = (a: number[], b: number[]): number[] =>
     a.filter((x) => !b.includes(x));
-
-export default arrayDiff;

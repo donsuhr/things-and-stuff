@@ -1,4 +1,9 @@
-import { create, LinkedList } from './linked-list';
+import {
+    create,
+    LinkedList,
+    arrayToLinkedList,
+    linkedListToArray,
+} from './linked-list';
 import { DataStructureNode } from './linked-list-node';
 
 test('it can add a value', () => {
@@ -19,6 +24,27 @@ test('it can while loop', () => {
         expect(reader.value).not.toBeNull();
         reader = reader.next;
     }
+});
+
+describe('linked-list utils', () => {
+    it('arrayToLinkedList', () => {
+        const list = arrayToLinkedList([1, 2, 3]);
+        expect(list.getFirst()!.item).toBe(1);
+        expect(list.getFirst()!.next!.item).toBe(2);
+        expect(list.getFirst()!.next!.next!.item).toBe(3);
+    });
+
+    it('linkedListToArray', () => {
+        const list = arrayToLinkedList([1, 2, 3]);
+        list.add(12);
+        const array = linkedListToArray(list);
+        expect(array).toEqual([1, 2, 3, 12]);
+    });
+
+    it('empty linkedListToArray', () => {
+        const list = new LinkedList<number>();
+        expect(linkedListToArray(list)).toEqual([]);
+    });
 });
 
 describe('the new linked list', () => {

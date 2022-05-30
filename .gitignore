@@ -4,3 +4,9 @@ node_modules
 Session.vim
 coverage
 /src/pythonCrashCourse
+__pycache__/
+*.py[cod]
+.coverage
+.coverage.*
+/python/bin
+/python/lib

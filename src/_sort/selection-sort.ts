@@ -1,4 +1,4 @@
-function getBiggstIndex<T>(A: T[]): number {
+export function getBiggestIndex<T>(A: T[]): number {
     return A.reduce((acc: number, x: T, i: number, arr: T[]) => {
         if (x > arr[acc]) {
             return i;
@@ -7,7 +7,7 @@ function getBiggstIndex<T>(A: T[]): number {
     }, 0);
 }
 
-function getSmallestIndex<T>(A: T[]): number {
+export function getSmallestIndex<T>(A: T[]): number {
     return A.reduce((acc: number, x: T, i: number, arr: T[]) => {
         if (x < arr[acc]) {
             return i;
@@ -16,13 +16,11 @@ function getSmallestIndex<T>(A: T[]): number {
     }, 0);
 }
 
-function selectionSort<T>(A: T[], predicateIndex = getBiggstIndex): T[] {
+export function selectionSort<T>(A: T[], istIndexFn = getBiggestIndex): T[] {
     const tmp = [...A];
     const ret = [];
     while (tmp.length) {
-        ret.push(tmp.splice(predicateIndex(tmp), 1)[0]);
+        ret.push(tmp.splice(istIndexFn(tmp), 1)[0]);
     }
     return ret;
 }
-
-export { selectionSort, getSmallestIndex };

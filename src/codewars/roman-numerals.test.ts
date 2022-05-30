@@ -1,6 +1,6 @@
 import RomanNumerals from './roman-numerals';
 
-it.only('makes', () => {
+it('makes', () => {
     expect(RomanNumerals.toRoman(1)).toBe('I');
     expect(RomanNumerals.toRoman(2)).toBe('II');
     expect(RomanNumerals.toRoman(3)).toBe('III');
@@ -22,7 +22,4 @@ it.only('makes', () => {
     expect(RomanNumerals.toRoman(444)).toBe('CDXLIV');
     expect(RomanNumerals.toRoman(555)).toBe('DLV');
     expect(RomanNumerals.toRoman(900)).toBe('CM');
-
-
 });
-
