@@ -21,7 +21,7 @@ export function binarySearchRecursive<T>(
     A: T[],
     item: T,
     low: number = 0,
-    high: number = A.length,
+    high: number = A.length - 1,
 ): number {
     if (low > high) {
         return -1;
