@@ -53,7 +53,9 @@ describe.each(maxFunctions)('max recursive: $fn.name', ({ fn: maxFn }) => {
     });
     it('max various', () => {
         expect(maxFn([99, 1, 2, 3, 100])).toBe(100);
+        expect(maxFn([99])).toBe(99);
         expect(maxFn([99, 1])).toBe(99);
+        expect(maxFn([1, 99])).toBe(99);
         expect(maxFn([99, 1, 2])).toBe(99);
     });
 });
