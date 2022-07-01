@@ -46,7 +46,15 @@ test('it can peek ', () => {
     sut.push('else');
     expect(sut.peek()).toBe('else');
 });
+
 test('it can peek empty', () => {
     const sut = new Stack<string>();
     expect(sut.peek()).toBeNull();
+});
+
+test('it can push and pop a zero', () => {
+    const sut = new Stack<number>();
+    sut.push(0);
+    expect(sut.peek()).toBe(0);
+    expect(sut.pop()).toBe(0);
 });

@@ -1,4 +1,4 @@
 /* eslint-disable-next-line @typescript-eslint/no-unused-vars */ // @ts-ignore
-import { sortMergeStacks as answer } from '../other/merge-2-unsorted-stacks';
+import { sortStack as answer } from '../other/sort-stack';
 
-export function sortMergeStacksDaily() {}
+export const sortMergeStacksDaily = () => {};
