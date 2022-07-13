@@ -13,3 +13,22 @@ export const findLongestSubstringOfUniqueChars = (str: string) => {
     }
     return result;
 };
+
+/* similar to consider */
+
+export const findLongestWord = (sen: string) => {
+    let result = '';
+    let currentResult = '';
+    for (let i = 0; i < sen.length; i++) {
+        if (/\w/.test(sen[i])) {
+            currentResult += sen[i];
+        } else {
+            currentResult = '';
+        }
+        result = result.length >= currentResult.length ? result : currentResult;
+    }
+    return result;
+};
+
+export const findLongestWordReduce = (sen: string) =>
+    sen.match(/\w+/g)!.reduce((acc, x) => (acc.length >= x.length ? acc : x));
