@@ -24,3 +24,17 @@ export function selectionSort<T>(A: T[], istIndexFn = getBiggestIndex): T[] {
     }
     return ret;
 }
+
+export function selectionSortInPlace<T>(A: T[]): T[] {
+    for (let i = 0; i < A.length; i++) {
+        let ist = i;
+        for (let j = i + 1; j < A.length; j++) {
+            if (A[j] < A[ist]) {
+                ist = j;
+            }
+        }
+        /* eslint-disable-next-line no-param-reassign */
+        [A[ist], A[i]] = [A[i], A[ist]];
+    }
+    return A;
+}
