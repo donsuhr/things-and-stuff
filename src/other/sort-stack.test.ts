@@ -1,4 +1,4 @@
-import { array2stack, stack2array } from '../_data-structure/stack-filo';
+import { array2stack, stack2array } from '../_data-structure/stack';
 import { sortStack } from './sort-stack';
 // import { sortMergeStacksDaily } from '../_daily/merge-2-unsorted-stacks';
 import { randomNumbers, isSorted } from '../util';

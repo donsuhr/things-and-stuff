@@ -5,7 +5,7 @@ balanced. For ex- ample, your program should print true
 for [()]{}{[()()]()} and false for [(]).
 */
 
-import { Stack } from '../../_data-structure/stack-filo';
+import { Stack } from '../../_data-structure/stack';
 
 const reverseBracket = {
     ']': '[',

@@ -1,4 +1,4 @@
-import { Stack } from './stack-filo';
+import { Stack } from './stack';
 // import { StackDaily } from '../_daily/stack';
 
 test('array of stacks of strings', () => {

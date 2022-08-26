@@ -1,4 +1,4 @@
-import { Queue } from './fifo-queue';
+import { Queue } from './queue';
 
 test('it starts empty', () => {
     const sut = new Queue<string>();

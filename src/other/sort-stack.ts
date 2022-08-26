@@ -1,4 +1,4 @@
-import { Stack } from '../_data-structure/stack-filo';
+import { Stack } from '../_data-structure/stack';
 
 export const sortStack = (...args: Stack<number>[]) => {
     const ret = new Stack<number>();

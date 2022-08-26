@@ -1,4 +1,4 @@
-import { Stack } from '../../_data-structure/stack-filo';
+import { Stack } from '../../_data-structure/stack';
 
 export function fixParens(S: string) {
     const charsArray = S.replace(/\s/g, '').split('');
