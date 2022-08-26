@@ -22,7 +22,7 @@ export class Bag<T> implements IterableIterator<T | null> {
 
     add(val: T) {
         const node = new DataStructureNode<T>();
-        node.item = val;
+        node.value = val;
         node.next = this.first;
         this.first = node;
     }
@@ -34,7 +34,7 @@ export class Bag<T> implements IterableIterator<T | null> {
             this.pointer = current.next;
             return {
                 done: false,
-                value: current!.item,
+                value: current!.value,
             };
         }
         return {

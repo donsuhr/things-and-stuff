@@ -17,7 +17,7 @@ export class Queue<T> {
 
     enqueue(val: T) {
         const node: DataStructureNode<T> = new DataStructureNode();
-        node.item = val;
+        node.value = val;
         node.next = null;
         const oldLast = this.last;
         this.last = node;
@@ -40,6 +40,6 @@ export class Queue<T> {
             this.last = null;
         }
         this.count--;
-        return item!.item;
+        return item!.value;
     }
 }

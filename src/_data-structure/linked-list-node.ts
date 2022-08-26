@@ -9,7 +9,7 @@ export class Node<T> {
 */
 
 export class DataStructureNode<T> {
-    public item: T | null = null;
+    public value: T | null = null;
 
     public next: DataStructureNode<T> | null = null;
 }

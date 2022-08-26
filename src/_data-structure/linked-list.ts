@@ -30,7 +30,7 @@ export class LinkedList<T> {
             node = val;
         } else {
             node = new DataStructureNode<T>();
-            node.item = val;
+            node.value = val;
         }
         if (!this.#head) {
             this.#head = node;
@@ -60,7 +60,7 @@ export const linkedListToArray = (ll: LinkedList<any>) => {
     let head = ll.getFirst();
     if (head) {
         while (head) {
-            ret.push(head.item);
+            ret.push(head.value);
             head = head.next;
         }
     }

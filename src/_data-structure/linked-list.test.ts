@@ -29,9 +29,9 @@ test('it can while loop', () => {
 describe('linked-list utils', () => {
     it('arrayToLinkedList', () => {
         const list = arrayToLinkedList([1, 2, 3]);
-        expect(list.getFirst()!.item).toBe(1);
-        expect(list.getFirst()!.next!.item).toBe(2);
-        expect(list.getFirst()!.next!.next!.item).toBe(3);
+        expect(list.getFirst()!.value).toBe(1);
+        expect(list.getFirst()!.next!.value).toBe(2);
+        expect(list.getFirst()!.next!.next!.value).toBe(3);
     });
 
     it('linkedListToArray', () => {
@@ -54,9 +54,9 @@ describe('the new linked list', () => {
         const second = new DataStructureNode<string>();
         const third = new DataStructureNode<string>();
 
-        first.item = 'to';
-        second.item = 'be';
-        third.item = 'or';
+        first.value = 'to';
+        second.value = 'be';
+        third.value = 'or';
 
         first.next = second;
         second.next = third;
@@ -66,12 +66,12 @@ describe('the new linked list', () => {
 
         const oldFirst = first;
         first = new DataStructureNode<string>();
-        first.item = 'not';
+        first.value = 'not';
         first.next = oldFirst;
 
-        expect(first.item).toBe('not');
-        expect(oldFirst.item).toBe('to');
-        expect(first.next.item).toBe('to');
+        expect(first.value).toBe('not');
+        expect(oldFirst.value).toBe('to');
+        expect(first.next.value).toBe('to');
     });
 
     test('it can add values that are not typed', () => {
@@ -80,7 +80,7 @@ describe('the new linked list', () => {
         const second = linkedList.add('foo');
         const first = linkedList.getFirst()!;
         first.next = second;
-        expect(first.item).toBe('thing');
-        expect(first.next.item).toBe(second.item);
+        expect(first.value).toBe('thing');
+        expect(first.next.value).toBe(second.value);
     });
 });

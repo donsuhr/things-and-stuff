@@ -9,7 +9,7 @@ export const mergeSorted = (
     let A: typeof l1 | null = l1;
     let B: typeof l2 | null = l2;
     while (A && B) {
-        if (A.item < B.item) {
+        if (A.value < B.value) {
             tail.next = A;
             A = A.next;
         } else {
@@ -31,7 +31,7 @@ export const mergeSortedRecursive = (
     let head;
     let nextA: typeof A | null = A;
     let nextB: typeof B | null = B;
-    if (A.item < B.item) {
+    if (A.value < B.value) {
         head = A;
         nextA = A.next;
     } else {

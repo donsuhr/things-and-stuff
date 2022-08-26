@@ -9,7 +9,7 @@ export class Stack<T> {
 
     push(val: T) {
         const node: DataStructureNode<T> = new DataStructureNode();
-        node.item = val;
+        node.value = val;
         if (this.#first) {
             node.next = this.#first;
         }
@@ -21,14 +21,14 @@ export class Stack<T> {
             const item = this.#first;
             this.#first = item.next;
 
-            return item.item;
+            return item.value;
         }
         return null;
     }
 
     peek() {
         if (this.#first) {
-            return this.#first.item;
+            return this.#first.value;
         }
         return null;
     }
