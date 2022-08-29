@@ -1,10 +1,10 @@
-import { DataStructureNode } from '../_data-structure/linked-list-node';
+import { LinkedListNode } from '../_data-structure/linked-list-node';
 
 export const mergeSorted = (
-    l1: DataStructureNode<any> | null,
-    l2: DataStructureNode<any> | null,
+    l1: LinkedListNode<any> | null,
+    l2: LinkedListNode<any> | null,
 ) => {
-    const head = new DataStructureNode();
+    const head = new LinkedListNode();
     let tail: typeof head | null = head;
     let A: typeof l1 | null = l1;
     let B: typeof l2 | null = l2;
@@ -23,8 +23,8 @@ export const mergeSorted = (
 };
 
 export const mergeSortedRecursive = (
-    A: DataStructureNode<any> | null,
-    B: DataStructureNode<any> | null,
+    A: LinkedListNode<any> | null,
+    B: LinkedListNode<any> | null,
 ) => {
     if (A === null) return B;
     if (B === null) return A;

@@ -1,15 +1,9 @@
-/*
-export class Node<T> {
-    private previous: Node<T> | null = null;
-
-    private next: Node<T> | null = null;
-
-    constructor(data: T) {}
-}
-*/
-
-export class DataStructureNode<T> {
+export class LinkedListNode<T> {
     public value: T | null = null;
 
-    public next: DataStructureNode<T> | null = null;
+    public next: LinkedListNode<T> | null = null;
+
+    constructor(val:T | null = null) {
+        this.value = val;
+    }
 }

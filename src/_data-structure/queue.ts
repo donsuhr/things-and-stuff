@@ -1,9 +1,9 @@
-import { DataStructureNode } from './linked-list-node';
+import { LinkedListNode } from './linked-list-node';
 
 export class Queue<T> {
-    private first: DataStructureNode<T> | null = null;
+    private first: LinkedListNode<T> | null = null;
 
-    private last: DataStructureNode<T> | null = null;
+    private last: LinkedListNode<T> | null = null;
 
     private count: number = 0;
 
@@ -16,7 +16,7 @@ export class Queue<T> {
     }
 
     enqueue(val: T) {
-        const node: DataStructureNode<T> = new DataStructureNode();
+        const node: LinkedListNode<T> = new LinkedListNode();
         node.value = val;
         node.next = null;
         const oldLast = this.last;

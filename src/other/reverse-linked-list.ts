@@ -1,6 +1,6 @@
-import { DataStructureNode } from '../_data-structure/linked-list-node';
+import { LinkedListNode } from '../_data-structure/linked-list-node';
 
-type Node = DataStructureNode<number> | null;
+type Node = LinkedListNode<number> | null;
 
 export const reverseLinkedList = (head: Node) => {
     let prev = null;

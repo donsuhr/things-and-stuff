@@ -1,4 +1,4 @@
-import { DataStructureNode } from './linked-list-node';
+import { LinkedListNode } from './linked-list-node';
 
 /* predefined by typescript
 interface Iterator<T> {
@@ -16,12 +16,12 @@ IterableIterator
 
 */
 export class Bag<T> implements IterableIterator<T | null> {
-    private first: DataStructureNode<T> | null = null;
+    private first: LinkedListNode<T> | null = null;
 
-    private pointer: DataStructureNode<T> | null = null;
+    private pointer: LinkedListNode<T> | null = null;
 
     add(val: T) {
-        const node = new DataStructureNode<T>();
+        const node = new LinkedListNode<T>();
         node.value = val;
         node.next = this.first;
         this.first = node;

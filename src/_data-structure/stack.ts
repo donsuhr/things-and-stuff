@@ -1,14 +1,14 @@
-import { DataStructureNode } from './linked-list-node';
+import { LinkedListNode } from './linked-list-node';
 
 export class Stack<T> {
-    #first: DataStructureNode<T> | null = null;
+    #first: LinkedListNode<T> | null = null;
 
     isEmpty() {
         return this.#first === null;
     }
 
     push(val: T) {
-        const node: DataStructureNode<T> = new DataStructureNode();
+        const node: LinkedListNode<T> = new LinkedListNode();
         node.value = val;
         if (this.#first) {
             node.next = this.#first;
