@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Binary Search Tree: BinarySearchTree breadthFirstSearch 1`] = `
+"9 
+4 20 
+1 6 15 170 
+"
+`;
+
+exports[`Binary Search Tree: BinarySearchTreeDaily breadthFirstSearch 1`] = `
+"9 
+4 20 
+1 6 15 170 
+"
+`;
