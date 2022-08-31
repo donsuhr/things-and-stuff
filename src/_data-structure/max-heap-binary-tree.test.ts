@@ -1,5 +1,5 @@
 import { MaxHeapTree } from './max-heap-binary-tree';
-import { MaxHeapTreeDaily } from '../_daily/max-heap-binary-tree';
+// import { MaxHeapTreeDaily } from '../_daily/max-heap-binary-tree';
 
 describe.each([
     { fn: MaxHeapTree },

@@ -5,7 +5,7 @@ test('it adds item', () => {
     sut.add(1);
 });
 
-test('iteterate', () => {
+test('iterate', () => {
     const sut = new Bag<number>();
     sut.add(1);
     sut.add(2);

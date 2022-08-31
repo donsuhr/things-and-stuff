@@ -34,6 +34,7 @@ export class MaxHeapTree<T> {
         let index = 0;
         const nodeCount = this.#values.length;
         const newNode = this.#values[0];
+        // eslint-disable-next-line no-constant-condition
         while (true) {
             let biggest = null;
             const leftIndex = 2 * index + 1;
