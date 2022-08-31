@@ -3,10 +3,10 @@ import {
     getSmallestIndex,
     selectionSortInPlace,
 } from './selection-sort';
-import {
-    // selectionSortDaily,
-    // selectionSortDailyInPlace,
-} from '../_daily/selectionSort';
+// import {
+// selectionSortDaily,
+// selectionSortDailyInPlace,
+// } from '../_daily/selectionSort';
 import { randomNumbers, isSorted } from '../util';
 
 describe.each([

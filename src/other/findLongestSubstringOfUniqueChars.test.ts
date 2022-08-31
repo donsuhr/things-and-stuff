@@ -1,4 +1,8 @@
-import { findLongestSubstringOfUniqueChars } from './findLongestSubstringOfUniqueChars';
+import {
+    findLongestSubstringOfUniqueChars,
+    findLongestWord,
+    findLongestWordReduce,
+} from './findLongestSubstringOfUniqueChars';
 // import { findLongestSubstringOfUniqueCharsDaily } from '../_daily/findLongestSubstringOfUniqueChars';
 
 describe.each([
@@ -40,3 +44,13 @@ describe.each([
         });
     },
 );
+
+describe('findLongestWord', () => {
+    it('finds the longest word', () => {
+        expect(findLongestWord('the longest word')).toBe('longest');
+    });
+
+    it('finds the longest word with reduce', () => {
+        expect(findLongestWordReduce('the longest word')).toBe('longest');
+    });
+});
