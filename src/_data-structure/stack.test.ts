@@ -18,9 +18,9 @@ describe.each([
         expect(sut.pop()).toBe('something');
     });
 
-    test('null for empty', () => {
+    test('undefined for empty', () => {
         const sut = new CurrentStack<string>();
-        expect(sut.pop()).toBeNull();
+        expect(sut.pop()).not.toBeDefined();
     });
 
     test('it pushes down two ', () => {
@@ -62,5 +62,16 @@ describe.each([
         sut.push(0);
         expect(sut.peek()).toBe(0);
         expect(sut.pop()).toBe(0);
+    });
+
+    it('has a bottom', () => {
+        const sut = new CurrentStack<string>();
+        sut.push('something');
+        sut.push('else');
+        expect(sut.bottom).toBe('something');
+        sut.pop();
+        expect(sut.bottom).toBe('something');
+        sut.pop();
+        expect(sut.bottom).not.toBeDefined();
     });
 });

@@ -1,36 +1,47 @@
 import { LinkedListNode } from './linked-list-node';
 
 export class Stack<T> {
-    #first: LinkedListNode<T> | null = null;
+    #top: LinkedListNode<T> | null = null;
+
+    #bottom: LinkedListNode<T> | null = null;
 
     isEmpty() {
-        return this.#first === null;
+        return this.#top === null;
     }
 
     push(val: T) {
         const node: LinkedListNode<T> = new LinkedListNode();
         node.value = val;
-        if (this.#first) {
-            node.next = this.#first;
+        if (this.#top) {
+            node.next = this.#top;
         }
-        this.#first = node;
+        this.#top = node;
+        if (this.#bottom === null) {
+            this.#bottom = node;
+        }
     }
 
     pop() {
-        if (this.#first) {
-            const item = this.#first;
-            this.#first = item.next;
+        let result;
+        if (this.#top) {
+            result = this.#top.value;
+            this.#top = this.#top.next;
+        }
+        if (this.#top === null) {
+            this.#bottom = null;
+        }
+        return result;
+    }
 
-            return item.value;
+    peek() {
+        if (this.#top) {
+            return this.#top.value;
         }
         return null;
     }
 
-    peek() {
-        if (this.#first) {
-            return this.#first.value;
-        }
-        return null;
+    get bottom() {
+        return this.#bottom?.value;
     }
 }
 
