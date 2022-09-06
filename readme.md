@@ -9,3 +9,11 @@ Watch and run lint and tsc. Builds for some reason 🤷
 `npm run watch`
 
 `npm run test`
+
+## Python
+
+`cd python`
+
+`source ./bin/activate`
+
+`pytest` - or - `pytest-watch`
