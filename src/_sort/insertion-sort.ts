@@ -1,5 +1,6 @@
 /* eslint-disable no-param-reassign */
-// O(n^2)
+// O(n^2) quadratic - O(1) space
+// use when small list or already mostly sorted
 export const insertionSort = <T>(A: T[]): T[] => {
     // left hand side becomes always sorted;
     for (let i = 1; i < A.length; i++) {

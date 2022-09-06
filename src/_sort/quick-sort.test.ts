@@ -1,9 +1,10 @@
-import { quickSort } from './quick-sort';
+import { quickSort, quickSortInPlace } from './quick-sort';
 // import { quickSortDaily } from '../_daily/quicksort';
 import { randomNumbers, isSorted } from '../util';
 
 describe.each([
     { fn: quickSort },
+    { fn: quickSortInPlace },
     // { fn: quickSortDaily }
 ])('quick sort: $fn.name', ({ fn: sort }) => {
     it('sorts some things', () => {

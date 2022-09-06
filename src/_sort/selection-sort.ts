@@ -25,6 +25,8 @@ export function selectionSort<T>(A: T[], istIndexFn = getBiggestIndex): T[] {
     return ret;
 }
 
+// O(n^2) O(1) space
+// never used, just for educational purposes 
 export function selectionSortInPlace<T>(A: T[]): T[] {
     for (let i = 0; i < A.length; i++) {
         let ist = i;

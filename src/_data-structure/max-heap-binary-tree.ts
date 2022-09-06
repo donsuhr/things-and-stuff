@@ -12,6 +12,10 @@
 // right child stored at 2n + 2;
 // parent at (n - 1) / 2
 
+
+// a simple priority queue could just be an array that
+// gets re-sorted on every push
+
 export class MaxHeapTree<T> {
     #values:T[] = [];
 
