@@ -6,6 +6,7 @@ export class BinarySearchTree<T> {
     // remove(): no implementation, complicated
 
     insert(val: T) {
+        // everything on the left of a node is less
         const node = new Node<T>(val);
 
         if (this.#root === null) {
