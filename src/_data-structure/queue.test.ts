@@ -34,5 +34,7 @@ describe.each([
         sut.enqueue('something');
         sut.enqueue('else');
         expect(sut.dequeue()).toBe('something');
+        expect(sut.dequeue()).toBe('else');
+        expect(sut.dequeue()).toBeNull();
     });
 });
