@@ -1,15 +1,6 @@
 import { LinkedListNode as Node } from './linked-list-node';
 
-export interface ILinkedList {
-    prepend: Function;
-    append: Function;
-    pop: Function;
-    shift: Function;
-    getAt: Function;
-    setAt: Function;
-}
-
-export class LinkedList<T> implements ILinkedList {
+export class LinkedList<T> {
     #head: Node<T> | null = null;
 
     #tail: Node<T> | null = null;
